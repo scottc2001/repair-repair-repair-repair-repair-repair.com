@@ -1,6 +1,7 @@
-function initGallery(galleryId, lightboxId, jsonFile, folder) {
+function initGallery(galleryId, lightboxId, jsonFile) {
   const galleryElement = document.getElementById(galleryId);
   const lightbox = document.getElementById(lightboxId);
+  let lightboxMedia = lightbox.querySelector('.lightbox-img');
   const lightboxCaption = lightbox.querySelector('.lightbox-caption');
   const closeBtn = lightbox.querySelector('.close-btn');
   const prevBtn = lightbox.querySelector('.nav-prev');
@@ -8,12 +9,25 @@ function initGallery(galleryId, lightboxId, jsonFile, folder) {
 
   let mediaItems = [];
   let currentIndex = 0;
-  let lightboxMedia;
 
   function pad(num) { return num.toString().padStart(2, '0'); }
+
   function formatDate(dateObj) {
     if (!dateObj) return '[No Date]';
     return `${dateObj.year}:${pad(dateObj.month)}:${pad(dateObj.day)} ${pad(dateObj.hour)}:${pad(dateObj.minute)}:${pad(dateObj.second)}`;
+  }
+
+  function getFolderFromJSON(filename) {
+    switch (filename) {
+      case 'repairs.json':
+        return 'Repairs';
+      case '2020-03-16_Cardboard-Packaging.json':
+        return '2020-03-16_Cardboard-Packaging';
+      case '2022-06-11_CampusPack.json':
+        return 'Campus';
+      default:
+        return '';
+    }
   }
 
   function openLightbox(index) {
@@ -34,8 +48,8 @@ function initGallery(galleryId, lightboxId, jsonFile, folder) {
       video.src = item.src;
       video.controls = true;
       video.autoplay = false;
-      video.style.maxWidth = '100%';
-      video.style.height = 'auto';
+      video.style.maxWidth = '90%';
+      video.style.maxHeight = '80%';
       video.className = 'lightbox-img';
       lightbox.insertBefore(video, lightboxCaption);
       lightboxMedia = video;
@@ -63,11 +77,11 @@ function initGallery(galleryId, lightboxId, jsonFile, folder) {
         thumb.style.width = '200px';
         thumb.style.height = 'auto';
         thumb.style.objectFit = 'cover';
-        thumb.poster = item.src.replace(/\.[^.]+$/, '.jpg');
+        thumb.style.cursor = 'pointer';
+        thumb.poster = `${item.src.replace(/\.[^.]+$/, '.jpg')}`;
       }
 
       thumb.alt = item.file;
-      thumb.style.cursor = 'pointer';
       thumb.addEventListener('click', () => openLightbox(index));
 
       const caption = document.createElement('div');
@@ -80,16 +94,17 @@ function initGallery(galleryId, lightboxId, jsonFile, folder) {
     });
   }
 
-  // Fetch JSON and populate gallery
-  fetch(jsonFile)
+  fetch(`./${jsonFile}`)
     .then(res => res.json())
     .then(data => {
+      const folder = getFolderFromJSON(jsonFile);
+
       mediaItems = data.map(item => {
         const ext = item.file.split('.').pop().toLowerCase();
         return {
           ...item,
           type: ['jpg','jpeg','png','gif'].includes(ext) ? 'image' : 'video',
-          src: `${folder}/${item.file}`
+          src: folder ? `./${folder}/${item.file}` : `./${item.file}`
         };
       });
 
@@ -103,27 +118,21 @@ function initGallery(galleryId, lightboxId, jsonFile, folder) {
     })
     .catch(err => console.error('Error loading JSON:', err));
 
-  // Lightbox interactions
-  closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
-  prevBtn.addEventListener('click', () => openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length));
-  nextBtn.addEventListener('click', () => openLightbox((currentIndex+1)%mediaItems.length));
-
-  // Close by clicking background
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) lightbox.style.display = 'none';
-  });
-
-  // Keyboard navigation
+  // Lightbox controls
+  closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
+  prevBtn.addEventListener('click', () => { openLightbox((currentIndex - 1 + mediaItems.length) % mediaItems.length); });
+  nextBtn.addEventListener('click', () => { openLightbox((currentIndex + 1) % mediaItems.length); });
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.style.display = 'none'; });
   document.addEventListener('keydown', e => {
     if (lightbox.style.display === 'flex') {
-      if (e.key === 'ArrowLeft') openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length);
-      else if (e.key === 'ArrowRight') openLightbox((currentIndex+1)%mediaItems.length);
+      if (e.key === 'ArrowLeft') openLightbox((currentIndex - 1 + mediaItems.length) % mediaItems.length);
+      else if (e.key === 'ArrowRight') openLightbox((currentIndex + 1) % mediaItems.length);
       else if (e.key === 'Escape') lightbox.style.display = 'none';
     }
   });
 }
 
-// Example usage
-initGallery('repairs-gallery', 'repairs-lightbox', 'repairs.json', 'Repairs');
-initGallery('cardboard-gallery', 'cardboard-lightbox', '2020-03-16_Cardboard-Packaging.json', '2020-03-16_Cardboard-Packaging');
-initGallery('campus-gallery', 'campus-lightbox', '2022-06-11_CampusPack.json', '2022-06-11_CampusPack');
+// Initialize all galleries
+initGallery('repairs-gallery', 'repairs-lightbox', 'repairs.json');
+initGallery('cardboard-gallery', 'cardboard-lightbox', '2020-03-16_Cardboard-Packaging.json');
+initGallery('campus-gallery', 'campus-lightbox', '2022-06-11_CampusPack.json');

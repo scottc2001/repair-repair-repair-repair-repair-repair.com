@@ -24,7 +24,7 @@ function initGallery(galleryId, lightboxId, jsonFile) {
       case '2020-03-16_Cardboard-Packaging.json':
         return '2020-03-16_Cardboard-Packaging';
       case '2022-06-11_CampusPack.json':
-        return 'Campus';
+        return 'Campus'; // adjust if folder name differs
       default:
         return '';
     }
@@ -94,7 +94,7 @@ function initGallery(galleryId, lightboxId, jsonFile) {
     });
   }
 
-  fetch(`./${jsonFile}`)
+  fetch(jsonFile)
     .then(res => res.json())
     .then(data => {
       const folder = getFolderFromJSON(jsonFile);
@@ -104,7 +104,7 @@ function initGallery(galleryId, lightboxId, jsonFile) {
         return {
           ...item,
           type: ['jpg','jpeg','png','gif'].includes(ext) ? 'image' : 'video',
-          src: folder ? `./${folder}/${item.file}` : `./${item.file}`
+          src: folder ? `${folder}/${item.file}` : item.file
         };
       });
 
@@ -136,3 +136,4 @@ function initGallery(galleryId, lightboxId, jsonFile) {
 initGallery('repairs-gallery', 'repairs-lightbox', 'repairs.json');
 initGallery('cardboard-gallery', 'cardboard-lightbox', '2020-03-16_Cardboard-Packaging.json');
 initGallery('campus-gallery', 'campus-lightbox', '2022-06-11_CampusPack.json');
+

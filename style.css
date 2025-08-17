@@ -109,6 +109,7 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   z-index: 10;
 }
 
+/* ---------------- Lightbox Arrows ---------------- */
 .nav-prev,
 .nav-next {
   position: fixed;
@@ -120,20 +121,27 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   user-select: none;
   z-index: 10;
   padding: 20px;
+  transition: color 0.2s;
 }
 
 .nav-prev:hover,
-.nav-next:hover { color: #999; }
+.nav-next:hover {
+  color: #999;
+}
 
 .nav-prev { left: 10px; }
 .nav-next { right: 10px; }
 
+/* ---------------- Hide Arrows on Mobile ---------------- */
 @media (max-width: 768px) {
   .nav-prev,
   .nav-next {
-    display: none !important;
+    display: none !important;       /* primary hide */
+    visibility: hidden !important;  /* Safari safety */
+    pointer-events: none !important;/* prevent clicks */
   }
 }
+
 
 
 
@@ -144,6 +152,7 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   display: block;
   margin: 0 auto;
 }
+
 
 
 

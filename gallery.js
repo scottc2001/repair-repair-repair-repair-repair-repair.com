@@ -1,7 +1,6 @@
-function initGallery(galleryId, lightboxId, jsonFile, folderName) {
+function initGallery(galleryId, lightboxId, jsonFile, folder) {
   const galleryElement = document.getElementById(galleryId);
   const lightbox = document.getElementById(lightboxId);
-  let lightboxMedia = lightbox.querySelector('.lightbox-img');
   const lightboxCaption = lightbox.querySelector('.lightbox-caption');
   const closeBtn = lightbox.querySelector('.close-btn');
   const prevBtn = lightbox.querySelector('.nav-prev');
@@ -9,6 +8,7 @@ function initGallery(galleryId, lightboxId, jsonFile, folderName) {
 
   let mediaItems = [];
   let currentIndex = 0;
+  let lightboxMedia;
 
   function pad(num) { return num.toString().padStart(2, '0'); }
   function formatDate(dateObj) {
@@ -34,8 +34,8 @@ function initGallery(galleryId, lightboxId, jsonFile, folderName) {
       video.src = item.src;
       video.controls = true;
       video.autoplay = false;
-      video.style.maxWidth = '90vw';
-      video.style.maxHeight = '90vh';
+      video.style.maxWidth = '100%';
+      video.style.height = 'auto';
       video.className = 'lightbox-img';
       lightbox.insertBefore(video, lightboxCaption);
       lightboxMedia = video;
@@ -63,11 +63,11 @@ function initGallery(galleryId, lightboxId, jsonFile, folderName) {
         thumb.style.width = '200px';
         thumb.style.height = 'auto';
         thumb.style.objectFit = 'cover';
-        thumb.style.cursor = 'pointer';
-        thumb.poster = `${item.src.replace(/\.[^.]+$/, '.jpg')}`;
+        thumb.poster = item.src.replace(/\.[^.]+$/, '.jpg');
       }
 
       thumb.alt = item.file;
+      thumb.style.cursor = 'pointer';
       thumb.addEventListener('click', () => openLightbox(index));
 
       const caption = document.createElement('div');
@@ -80,24 +80,22 @@ function initGallery(galleryId, lightboxId, jsonFile, folderName) {
     });
   }
 
+  // Fetch JSON and populate gallery
   fetch(jsonFile)
-    .then(res => {
-      if (!res.ok) throw new Error(`Cannot load ${jsonFile}`);
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
       mediaItems = data.map(item => {
         const ext = item.file.split('.').pop().toLowerCase();
         return {
           ...item,
           type: ['jpg','jpeg','png','gif'].includes(ext) ? 'image' : 'video',
-          src: `${folderName}/${item.file}`
+          src: `${folder}/${item.file}`
         };
       });
 
-      mediaItems.sort((a,b) => {
-        const timeA = a.dateTaken ? new Date(a.dateTaken.year,a.dateTaken.month-1,a.dateTaken.day,a.dateTaken.hour,a.dateTaken.minute,a.dateTaken.second).getTime() : 0;
-        const timeB = b.dateTaken ? new Date(b.dateTaken.year,b.dateTaken.month-1,b.dateTaken.day,b.dateTaken.hour,b.dateTaken.minute,b.dateTaken.second).getTime() : 0;
+      mediaItems.sort((a, b) => {
+        const timeA = a.dateTaken ? new Date(a.dateTaken.year, a.dateTaken.month-1, a.dateTaken.day, a.dateTaken.hour, a.dateTaken.minute, a.dateTaken.second).getTime() : 0;
+        const timeB = b.dateTaken ? new Date(b.dateTaken.year, b.dateTaken.month-1, b.dateTaken.day, b.dateTaken.hour, b.dateTaken.minute, b.dateTaken.second).getTime() : 0;
         return timeB - timeA;
       });
 
@@ -105,21 +103,27 @@ function initGallery(galleryId, lightboxId, jsonFile, folderName) {
     })
     .catch(err => console.error('Error loading JSON:', err));
 
-  // Lightbox controls
-  closeBtn.addEventListener('click', () => lightbox.style.display='none');
+  // Lightbox interactions
+  closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
   prevBtn.addEventListener('click', () => openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length));
   nextBtn.addEventListener('click', () => openLightbox((currentIndex+1)%mediaItems.length));
-  lightbox.addEventListener('click', e => { if(e.target===lightbox) lightbox.style.display='none'; });
+
+  // Close by clicking background
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  });
+
+  // Keyboard navigation
   document.addEventListener('keydown', e => {
-    if(lightbox.style.display==='flex'){
-      if(e.key==='ArrowLeft') openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length);
-      else if(e.key==='ArrowRight') openLightbox((currentIndex+1)%mediaItems.length);
-      else if(e.key==='Escape') lightbox.style.display='none';
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'ArrowLeft') openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length);
+      else if (e.key === 'ArrowRight') openLightbox((currentIndex+1)%mediaItems.length);
+      else if (e.key === 'Escape') lightbox.style.display = 'none';
     }
   });
 }
 
-// Usage example for GitHub Pages:
+// Example usage
 initGallery('repairs-gallery', 'repairs-lightbox', 'repairs.json', 'Repairs');
 initGallery('cardboard-gallery', 'cardboard-lightbox', '2020-03-16_Cardboard-Packaging.json', '2020-03-16_Cardboard-Packaging');
-initGallery('campus-gallery', 'campus-lightbox', '2022-06-11_CampusPack.json', 'CampusPack');
+initGallery('campus-gallery', 'campus-lightbox', '2022-06-11_CampusPack.json', '2022-06-11_CampusPack');

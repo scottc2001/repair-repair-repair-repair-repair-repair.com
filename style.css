@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+/* ---------------- Prevent Mobile Zoom ---------------- */
+html, body {
+  touch-action: pan-x pan-y; /* disables pinch-zoom on most mobile browsers */
+}
+
 body {
   font-family: 'Inconsolata', monospace;
   color: #0000FF;
@@ -150,6 +155,7 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   display: block;
   margin: 0 auto;
 }
+
 
 
 

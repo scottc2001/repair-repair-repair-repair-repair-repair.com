@@ -1,0 +1,237 @@
+/* ---------------- Reset & Base Styles ---------------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inconsolata', monospace;
+    color: #0000FF;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+label {
+    cursor: pointer;
+}
+
+/* ---------------- Headings ---------------- */
+h1, h2, h3, h4 {
+    font-family: 'Inconsolata', monospace;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
+h1, h2 {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+h2 {
+    font-size: 20pt;
+    font-weight: normal;
+    margin-left: 10px;
+    text-align: center;
+}
+
+h3 {
+  font-weight: lighter;
+  text-align: center;
+  white-space: nowrap;    /* don't wrap to a new line */
+  font-size: 4.4vw;        /* scale with screen width */
+  margin: 0;
+}
+
+
+h4 {
+    font-size: 12pt;
+    font-weight: lighter;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+h1:hover, h2:hover, .accordion:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- Accordion & Details ---------------- */
+.accordion {
+    cursor: default;
+    color: #000;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    text-align: left;
+    background: none;
+    outline: none;
+    display: block;
+    width: 100%;
+    margin-left: 10px;
+}
+
+details.no-arrow > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+details summary h1,
+details summary h2,
+details summary h3 {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    font-weight: normal;
+     margin-left: 10px;
+}
+
+details summary > div,
+details summary > h1,
+details summary > h2,
+details summary > h3 {
+    display: inline-block;
+    cursor: pointer;
+     margin-left: 10px;
+}
+
+details details {
+    margin-left: 10px;
+}
+
+details {
+    width: fit-content;
+    max-width: 100%;
+     margin-left: 10px;
+}
+
+.text-style {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    margin: 0;
+    padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+}
+
+/* ---------------- Image Gallery ---------------- */
+.image-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-item {
+    display: inline-block;
+    margin: 10px 0 10px 20px;
+    text-align: left;
+}
+
+.image-item img {
+    max-height: 200px;
+    cursor: pointer;
+}
+
+.caption {
+    font-size: 0.8em;
+    margin-top: 3px;
+    text-align: left;
+}
+
+/* ---------------- Lightbox ---------------- */
+/* Make lightbox content stacked vertically */
+/* Lightbox overlay */
+.lightbox {
+  display: none;  /* hide by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.945);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
+}
+
+
+/* Lightbox content */
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* Caption below media */
+.lightbox-caption {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Close button */
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+/* Navigation arrows on screen edges */
+.nav-prev,
+.nav-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  padding: 20px;
+  transition: color 0.2s;
+}
+
+.nav-prev:hover,
+.nav-next:hover {
+  color: rgb(148, 148, 148);
+}
+
+.nav-prev {
+  left: 10px;   /* far left */
+}
+
+.nav-next {
+  right: 10px;  /* far right */
+}
+
+/* Make media responsive */
+.lightbox-img,
+.lightbox-video {
+  max-width: 90vw;
+  max-height: 80vh;
+  display: block;
+}

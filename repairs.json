@@ -1,0 +1,626 @@
+[
+  {
+    "file": "IMG_0694.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 11,
+      "day": 26,
+      "hour": 16,
+      "minute": 51,
+      "second": 26,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2024:11:26 16:51:26",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_0872.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 12,
+      "day": 3,
+      "hour": 13,
+      "minute": 59,
+      "second": 16,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2024:12:03 13:59:16",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_0875.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 12,
+      "day": 3,
+      "hour": 14,
+      "minute": 9,
+      "second": 53,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2024:12:03 14:09:53",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_0889.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 12,
+      "day": 3,
+      "hour": 14,
+      "minute": 11,
+      "second": 1,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2024:12:03 14:11:01",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_2443.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 1,
+      "day": 29,
+      "hour": 11,
+      "minute": 16,
+      "second": 49,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2025:01:29 11:16:49",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_2445.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 1,
+      "day": 29,
+      "hour": 11,
+      "minute": 21,
+      "second": 25,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2025:01:29 11:21:25",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_2992.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 2,
+      "day": 12,
+      "hour": 9,
+      "minute": 45,
+      "second": 23,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2025:02:12 09:45:23",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_3165.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 2,
+      "day": 20,
+      "hour": 15,
+      "minute": 45,
+      "second": 56,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2025:02:20 15:45:56",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_3334.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 2,
+      "day": 28,
+      "hour": 16,
+      "minute": 48,
+      "second": 2,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2025:02:28 16:48:02",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_3703.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 3,
+      "day": 25,
+      "hour": 15,
+      "minute": 14,
+      "second": 0,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2025:03:25 15:14:00",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_3709.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 3,
+      "day": 25,
+      "hour": 15,
+      "minute": 15,
+      "second": 0,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2025:03:25 15:15:00",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_4952.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 6,
+      "day": 26,
+      "hour": 11,
+      "minute": 6,
+      "second": 47,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2025:06:26 11:06:47",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_7209.jpg",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2023,
+      "month": 12,
+      "day": 14,
+      "hour": 11,
+      "minute": 19,
+      "second": 47,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2023:12:14 11:19:47",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_7426.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 1,
+      "day": 9,
+      "hour": 11,
+      "minute": 44,
+      "second": 52,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2024:01:09 11:44:52",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_7545.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 2,
+      "day": 1,
+      "hour": 16,
+      "minute": 44,
+      "second": 43,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2024:02:01 16:44:43",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_7825.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 3,
+      "day": 6,
+      "hour": 15,
+      "minute": 38,
+      "second": 10,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2024:03:06 15:38:10",
+      "zoneName": "UTC-8",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_7951.jpg",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 3,
+      "day": 28,
+      "hour": 11,
+      "minute": 48,
+      "second": 48,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:03:28 11:48:48",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_7953.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 3,
+      "day": 28,
+      "hour": 11,
+      "minute": 58,
+      "second": 27,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:03:28 11:58:27",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8091.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 4,
+      "day": 16,
+      "hour": 10,
+      "minute": 7,
+      "second": 19,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:04:16 10:07:19",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8259.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 4,
+      "day": 30,
+      "hour": 10,
+      "minute": 16,
+      "second": 14,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:04:30 10:16:14",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8265.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 4,
+      "day": 30,
+      "hour": 10,
+      "minute": 16,
+      "second": 29,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:04:30 10:16:29",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8277.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 5,
+      "day": 2,
+      "hour": 16,
+      "minute": 35,
+      "second": 27,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:05:02 16:35:27",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8592.jpg",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 5,
+      "day": 30,
+      "hour": 15,
+      "minute": 7,
+      "second": 28,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:05:30 15:07:28",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8978.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 7,
+      "day": 25,
+      "hour": 17,
+      "minute": 48,
+      "second": 38,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:07:25 17:48:38",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8980.jpg",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 7,
+      "day": 25,
+      "hour": 17,
+      "minute": 48,
+      "second": 59,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:07:25 17:48:59",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_8988.jpg",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 7,
+      "day": 25,
+      "hour": 17,
+      "minute": 52,
+      "second": 1,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:07:25 17:52:01",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9028.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 8,
+      "day": 6,
+      "hour": 14,
+      "minute": 23,
+      "second": 49,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:08:06 14:23:49",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9029.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 8,
+      "day": 6,
+      "hour": 14,
+      "minute": 23,
+      "second": 51,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:08:06 14:23:51",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9290.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 9,
+      "day": 9,
+      "hour": 15,
+      "minute": 19,
+      "second": 10,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:09:09 15:19:10",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9307.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 9,
+      "day": 11,
+      "hour": 14,
+      "minute": 35,
+      "second": 9,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:09:11 14:35:09",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9321.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 9,
+      "day": 11,
+      "hour": 14,
+      "minute": 41,
+      "second": 6,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:09:11 14:41:06",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9354.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 9,
+      "day": 16,
+      "hour": 14,
+      "minute": 25,
+      "second": 16,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:09:16 14:25:16",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9470.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 2,
+      "hour": 15,
+      "minute": 15,
+      "second": 37,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:10:02 15:15:37",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9471.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 2,
+      "hour": 15,
+      "minute": 15,
+      "second": 40,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:10:02 15:15:40",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9484.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 3,
+      "hour": 15,
+      "minute": 6,
+      "second": 56,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:10:03 15:06:56",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9743.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 21,
+      "hour": 14,
+      "minute": 19,
+      "second": 12,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:10:21 14:19:12",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9747.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 21,
+      "hour": 14,
+      "minute": 20,
+      "second": 12,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:10:21 14:20:12",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9774.JPG",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 22,
+      "hour": 15,
+      "minute": 34,
+      "second": 20,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:10:22 15:34:20",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  },
+  {
+    "file": "IMG_9826.jpg",
+    "dateTaken": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 25,
+      "hour": 15,
+      "minute": 2,
+      "second": 46,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:10:25 15:02:46",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    }
+  }
+]

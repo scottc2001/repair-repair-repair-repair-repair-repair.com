@@ -131,9 +131,10 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
 @media (max-width: 768px) {
   .nav-prev,
   .nav-next {
-    display: none;
+    display: none !important;
   }
 }
+
 
 
 .lightbox-img,
@@ -143,5 +144,6 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   display: block;
   margin: 0 auto;
 }
+
 
 

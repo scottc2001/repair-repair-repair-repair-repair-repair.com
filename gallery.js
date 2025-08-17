@@ -1,39 +1,11 @@
-function initGallery(galleryId, lightboxId, jsonFile) {
+function initGallery(galleryId, lightboxId, jsonFile, folderName) {
   const galleryElement = document.getElementById(galleryId);
   const lightbox = document.getElementById(lightboxId);
-  const lightboxContent = document.createElement('div');
-  lightboxContent.className = 'lightbox-content';
-  lightbox.innerHTML = ''; // Clear any existing content
-  lightbox.appendChild(lightboxContent);
-
-  const closeBtn = document.createElement('span');
-  closeBtn.className = 'close-btn';
-  closeBtn.innerHTML = '&times;';
-  lightboxContent.appendChild(closeBtn);
-
-  const lightboxMedia = document.createElement('img');
-  lightboxMedia.className = 'lightbox-img';
-  lightboxContent.appendChild(lightboxMedia);
-
-  const lightboxVideo = document.createElement('video');
-  lightboxVideo.className = 'lightbox-video';
-  lightboxVideo.controls = true;
-  lightboxVideo.style.display = 'none';
-  lightboxContent.appendChild(lightboxVideo);
-
-  const lightboxCaption = document.createElement('span');
-  lightboxCaption.className = 'lightbox-caption';
-  lightboxContent.appendChild(lightboxCaption);
-
-  const prevBtn = document.createElement('span');
-  prevBtn.className = 'nav-prev';
-  prevBtn.innerHTML = '&#10094;';
-  lightboxContent.appendChild(prevBtn);
-
-  const nextBtn = document.createElement('span');
-  nextBtn.className = 'nav-next';
-  nextBtn.innerHTML = '&#10095;';
-  lightboxContent.appendChild(nextBtn);
+  let lightboxMedia = lightbox.querySelector('.lightbox-img');
+  const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+  const closeBtn = lightbox.querySelector('.close-btn');
+  const prevBtn = lightbox.querySelector('.nav-prev');
+  const nextBtn = lightbox.querySelector('.nav-next');
 
   let mediaItems = [];
   let currentIndex = 0;
@@ -49,14 +21,24 @@ function initGallery(galleryId, lightboxId, jsonFile) {
     const item = mediaItems[currentIndex];
     lightbox.style.display = 'flex';
 
+    if (lightboxMedia) lightboxMedia.remove();
+
     if (item.type === 'image') {
-      lightboxMedia.src = item.src;
-      lightboxMedia.style.display = 'block';
-      lightboxVideo.style.display = 'none';
-    } else {
-      lightboxVideo.src = item.src;
-      lightboxVideo.style.display = 'block';
-      lightboxMedia.style.display = 'none';
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.className = 'lightbox-img';
+      lightbox.insertBefore(img, lightboxCaption);
+      lightboxMedia = img;
+    } else if (item.type === 'video') {
+      const video = document.createElement('video');
+      video.src = item.src;
+      video.controls = true;
+      video.autoplay = false;
+      video.style.maxWidth = '90vw';
+      video.style.maxHeight = '90vh';
+      video.className = 'lightbox-img';
+      lightbox.insertBefore(video, lightboxCaption);
+      lightboxMedia = video;
     }
 
     lightboxCaption.textContent = `${item.file} [${formatDate(item.dateTaken)}]`;
@@ -71,7 +53,7 @@ function initGallery(galleryId, lightboxId, jsonFile) {
       if (item.type === 'image') {
         thumb = document.createElement('img');
         thumb.src = item.src;
-      } else {
+      } else if (item.type === 'video') {
         thumb = document.createElement('video');
         thumb.src = item.src;
         thumb.controls = false;
@@ -82,7 +64,7 @@ function initGallery(galleryId, lightboxId, jsonFile) {
         thumb.style.height = 'auto';
         thumb.style.objectFit = 'cover';
         thumb.style.cursor = 'pointer';
-        thumb.poster = item.src.replace(/\.[^.]+$/, '.jpg');
+        thumb.poster = `${item.src.replace(/\.[^.]+$/, '.jpg')}`;
       }
 
       thumb.alt = item.file;
@@ -99,14 +81,17 @@ function initGallery(galleryId, lightboxId, jsonFile) {
   }
 
   fetch(jsonFile)
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error(`Cannot load ${jsonFile}`);
+      return res.json();
+    })
     .then(data => {
       mediaItems = data.map(item => {
         const ext = item.file.split('.').pop().toLowerCase();
         return {
           ...item,
           type: ['jpg','jpeg','png','gif'].includes(ext) ? 'image' : 'video',
-          src: `${jsonFile.replace('.json','')}/${item.file}`
+          src: `${folderName}/${item.file}`
         };
       });
 
@@ -120,15 +105,11 @@ function initGallery(galleryId, lightboxId, jsonFile) {
     })
     .catch(err => console.error('Error loading JSON:', err));
 
-  // Close lightbox when clicking outside content
-  lightbox.addEventListener('click', e => {
-    if(e.target === lightbox) lightbox.style.display = 'none';
-  });
-
-  closeBtn.addEventListener('click', () => { lightbox.style.display='none'; });
-  prevBtn.addEventListener('click', () => { openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length); });
-  nextBtn.addEventListener('click', () => { openLightbox((currentIndex+1)%mediaItems.length); });
-
+  // Lightbox controls
+  closeBtn.addEventListener('click', () => lightbox.style.display='none');
+  prevBtn.addEventListener('click', () => openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length));
+  nextBtn.addEventListener('click', () => openLightbox((currentIndex+1)%mediaItems.length));
+  lightbox.addEventListener('click', e => { if(e.target===lightbox) lightbox.style.display='none'; });
   document.addEventListener('keydown', e => {
     if(lightbox.style.display==='flex'){
       if(e.key==='ArrowLeft') openLightbox((currentIndex-1+mediaItems.length)%mediaItems.length);
@@ -138,7 +119,7 @@ function initGallery(galleryId, lightboxId, jsonFile) {
   });
 }
 
-// Example usage
-initGallery('repairs-gallery','repairs-lightbox','repairs.json');
-initGallery('cardboard-gallery','cardboard-lightbox','2020-03-16_Cardboard-Packaging.json');
-initGallery('campus-gallery','campus-lightbox','2022-06-11_CampusPack.json');
+// Usage example for GitHub Pages:
+initGallery('repairs-gallery', 'repairs-lightbox', 'repairs.json', 'Repairs');
+initGallery('cardboard-gallery', 'cardboard-lightbox', '2020-03-16_Cardboard-Packaging.json', '2020-03-16_Cardboard-Packaging');
+initGallery('campus-gallery', 'campus-lightbox', '2022-06-11_CampusPack.json', 'CampusPack');

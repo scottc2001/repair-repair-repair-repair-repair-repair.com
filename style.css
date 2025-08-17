@@ -128,6 +128,14 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
 .nav-prev { left: 10px; }
 .nav-next { right: 10px; }
 
+@media (max-width: 768px) {
+  .nav-prev,
+  .nav-next {
+    display: none;
+  }
+}
+
+
 .lightbox-img,
 .lightbox-video {
   max-width: 90vw;
@@ -135,3 +143,4 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   display: block;
   margin: 0 auto;
 }
+

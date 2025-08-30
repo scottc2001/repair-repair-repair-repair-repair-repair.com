@@ -33,7 +33,7 @@ h3 {
   font-weight: lighter;
   text-align: center;
   white-space: nowrap;
-  font-size: 11vw;
+  font-size: 5.1vw;
 }
 h4 { font-size: 12pt; font-weight: lighter; margin: 5px 10px; }
 
@@ -65,7 +65,7 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  max-width: 200px;
+  max-width: 250px;
 }
 
 .image-item img,
@@ -158,10 +158,18 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
 
 
 
-
-
-
-
+    /* Captions under each grid image */
+    .image-item {
+      text-align: center;
+    }
+    .image-item .caption {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #0000FF;
+      font-family: 'Inconsolata', monospace;
+      line-height: 1.2;
+      word-break: break-word;
+    }
 
 
 

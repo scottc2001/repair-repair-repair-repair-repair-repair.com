@@ -6,7 +6,6 @@
   <title>repair-repair-repair-repair-repair-repair.com</title>
   <link href="https://fonts.cdnfonts.com/css/inconsolata-3" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -18,31 +17,31 @@
     repair-repair-repair-repair-repair.com<br>
   </h3>
 
+  <details>
+    <summary><h2>a few words</h2></summary>
+    <p style="margin-left: 2rem; margin-top: 20px; margin-bottom:20px;">
+      Under that tree, there we sat down,<br>
+      discussing clothes, uniforms, fabric, repair.<br><br>
 
-<details>
-  <summary><h2>a few words</h2></summary>
-  <p style="margin-left: 2rem; margin-top: 20px; margin-bottom:20px;">
-    Under that tree, there we sat down,<br>
-    discussing clothes, uniforms, fabric, repair.<br><br>
+      Here is where we found thoroughness<br>
+      Here is where we found mentorship<br>
+      Here is where we found love<br>
+      Here is where we found devotion<br><br>
 
-    Here is where we found thoroughness<br>
-    Here is where we found mentorship<br>
-    Here is where we found love<br>
-    Here is where we found devotion<br><br>
+      Here in that semi-basement<br>
+      where the ceiling leaks down while we work.<br><br>
 
-    Here in that semi-basement<br>
-    where the ceiling leaks down while we work.<br><br>
-
-    I am not lucky, I am grateful.<br>
-    .<br>
-    .<br>
-    .<br>
-    Scott (08/30/2025)
-  </p>
-</details>
+      I am not lucky, I am grateful.<br>
+      .<br>
+      .<br>
+      .<br>
+      Scott (08/30/2025)
+    </p>
+  </details>
 
   <details>
     <summary><h2>images</h2></summary>
+    <!-- Ensure the ID matches what gallery.js expects -->
     <div class="image-list" id="repairs-gallery"></div>
   </details>
 
@@ -55,10 +54,11 @@
     <span class="lightbox-caption"></span>
   </div>
 
+  <!-- Keep gallery.js the same -->
   <script src="gallery.js"></script>
 
   <script>
-    // navigation arrows (if you ever add .nav-arrow elements)
+    // Navigation arrows
     document.querySelectorAll('.nav-arrow').forEach(arrow => {
       arrow.addEventListener('click', function(e) {
         e.preventDefault();
@@ -84,7 +84,7 @@
       });
     }
 
-    // Image display toggle
+    // Image toggle
     var imageLinks = document.getElementsByClassName("image-link");
     for (var j = 0; j < imageLinks.length; j++) {
       imageLinks[j].addEventListener("click", function(event) {
@@ -100,7 +100,7 @@
   </script>
 
   <script>
-    // Keyboard navigation (legacy: only if you use hash-based lightboxes)
+    // Keyboard navigation for lightbox
     document.addEventListener('keydown', function(e) {
       const openLightbox = document.querySelector('.lightbox:target');
       if (!openLightbox) return;

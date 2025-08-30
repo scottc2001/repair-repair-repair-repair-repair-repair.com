@@ -6,6 +6,7 @@
   <title>repair-repair-repair-repair-repair-repair.com</title>
   <link href="https://fonts.cdnfonts.com/css/inconsolata-3" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
@@ -15,115 +16,112 @@
     repair-repair-repair-repair-repair.com<br>
     repair-repair-repair-repair-repair.com<br>
     repair-repair-repair-repair-repair.com<br>
-    <br>
-    <br>
   </h3>
 
+
 <details>
+  <summary><h2>a few words</h2></summary>
+  <p style="margin-left: 2rem; margin-top: 20px; margin-bottom:20px;">
+    Under that tree, there we sat down,<br>
+    discussing clothes, uniforms, fabric, repair.<br><br>
+
+    Here is where we found thoroughness<br>
+    Here is where we found mentorship<br>
+    Here is where we found love<br>
+    Here is where we found devotion<br><br>
+
+    Here in that semi-basement<br>
+    where the ceiling leaks down while we work.<br><br>
+
+    I am not lucky, I am grateful.<br>
+    .<br>
+    .<br>
+    .<br>
+    Scott (08/30/2025)
+  </p>
+</details>
+
+  <details>
     <summary><h2>images</h2></summary>
     <div class="image-list" id="repairs-gallery"></div>
   </details>
-</details>
 
-<div id="repairs-lightbox" class="lightbox" style="display:none;">
-  <span class="close-btn">&times;</span>
-  <img class="lightbox-img" src="" style="display:block;">
-  <video class="lightbox-video" src="" controls style="display:none;"></video>
-  <span class="nav-prev">&#10094;</span>
-  <span class="nav-next">&#10095;</span>
-  <span class="lightbox-caption"></span>
-</div>
-
+  <div id="repairs-lightbox" class="lightbox" style="display:none;">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-img" src="" style="display:block;">
+    <video class="lightbox-video" src="" controls style="display:none;"></video>
+    <span class="nav-prev">&#10094;</span>
+    <span class="nav-next">&#10095;</span>
+    <span class="lightbox-caption"></span>
+  </div>
 
   <script src="gallery.js"></script>
 
-
-
-<script>
+  <script>
+    // navigation arrows (if you ever add .nav-arrow elements)
     document.querySelectorAll('.nav-arrow').forEach(arrow => {
-        arrow.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            target.querySelector('.lightbox-img').scrollIntoView({behavior: 'smooth'});
-        });
+      arrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.querySelector('.lightbox-img').scrollIntoView({behavior: 'smooth'});
+      });
     });
-</script>
+  </script>
 
-
-<script>
+  <script>
     // Accordion functionality
     var acc = document.getElementsByClassName("accordion");
     for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function(event) {
-            event.preventDefault();
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
+      acc[i].addEventListener("click", function(event) {
+        event.preventDefault();
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
     }
 
-    // Image display functionality
+    // Image display toggle
     var imageLinks = document.getElementsByClassName("image-link");
     for (var j = 0; j < imageLinks.length; j++) {
-        imageLinks[j].addEventListener("click", function(event) {
-            var imageId = this.getAttribute("data-image");
-            var imageElement = document.getElementById(imageId);
-            if (imageElement.style.display === "block") {
-                imageElement.style.display = "none";
-            } else {
-                imageElement.style.display = "block";
-            }
-        });
+      imageLinks[j].addEventListener("click", function(event) {
+        var imageId = this.getAttribute("data-image");
+        var imageElement = document.getElementById(imageId);
+        if (imageElement.style.display === "block") {
+          imageElement.style.display = "none";
+        } else {
+          imageElement.style.display = "block";
+        }
+      });
     }
-</script>
+  </script>
 
+  <script>
+    // Keyboard navigation (legacy: only if you use hash-based lightboxes)
+    document.addEventListener('keydown', function(e) {
+      const openLightbox = document.querySelector('.lightbox:target');
+      if (!openLightbox) return;
 
-<script>
-  document.addEventListener('keydown', function(e) {
-    const openLightbox = document.querySelector('.lightbox:target');
-    if (!openLightbox) return; // If no lightbox is open, do nothing
+      const currentId = openLightbox.id;
+      const lightboxes = ['lightbox1', 'lightbox2', 'lightbox3'];
+      const index = lightboxes.indexOf(currentId);
 
-    const currentId = openLightbox.id;
-
-    // Define the order of lightboxes
-    const lightboxes = ['lightbox1', 'lightbox2', 'lightbox3'];
-    const index = lightboxes.indexOf(currentId);
-
-    if (e.key === 'ArrowRight') {
-      // Next image
-      const next = lightboxes[index + 1];
-      if (next) window.location.hash = '#' + next;
-    }
-
-    if (e.key === 'ArrowLeft') {
-      // Previous image
-      const prev = lightboxes[index - 1];
-      if (prev) window.location.hash = '#' + prev;
-    }
-
-    if (e.key === 'Escape') {
-      // Close lightbox
-      window.location.hash = '';
-    }
-  });
-</script>
-
+      if (e.key === 'ArrowRight') {
+        const next = lightboxes[index + 1];
+        if (next) window.location.hash = '#' + next;
+      }
+      if (e.key === 'ArrowLeft') {
+        const prev = lightboxes[index - 1];
+        if (prev) window.location.hash = '#' + prev;
+      }
+      if (e.key === 'Escape') {
+        window.location.hash = '';
+      }
+    });
+  </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-

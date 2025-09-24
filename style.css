@@ -52,6 +52,22 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   details summary::-webkit-details-marker { display: none; }
 }
 
+/* Chrome, Safari, Edge */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Firefox */
+summary::marker {
+  display: none;
+}
+
+summary {
+  list-style: none;   /* extra safety */
+  cursor: pointer;
+}
+
+
 /* ---------------- Image Gallery ---------------- */
 .image-list {
   display: flex;
@@ -66,7 +82,7 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  max-width: 150px;
+  max-width: 250px;
 }
 
 /* Add a fixed-ratio frame for consistency */
@@ -183,13 +199,15 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
       text-align: center;
     }
     .image-item .caption {
-      margin-top: 0.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.6rem;
       font-size: 0.85rem;
       color: #0000FF;
       font-family: 'Inconsolata', monospace;
       line-height: 1.2;
       word-break: break-word;
     }
+
 
 
 

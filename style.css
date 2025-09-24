@@ -72,42 +72,37 @@ summary {
 .image-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 20px;         /* ✅ consistent 20px gap */
   padding: 10px;
+  justify-content: center; /* optional: center grid on page */
 }
-
 
 .image-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  max-width: 250px;
 }
 
+/* ✅ Enforce 3x4 frame */
 .image-frame {
-  width: 300px;
-  height: 400px; /* or use the aspect-ratio trick for responsive */
+  width: 300px;   /* 3 */
+  height: 400px;  /* 4 */
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center;     /* vertical centering */
+  justify-content: center;  /* center horiz */
+  align-items: center;      /* center vert */
   overflow: hidden;
   background: transparent;
 }
 
+/* ✅ Fit image/video into frame without distortion */
 .image-frame img,
 .image-frame video {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;  /* keeps aspect ratio, centers inside frame */
+  object-fit: contain;  /* show whole image, preserve aspect ratio */
 }
 
-.image-item img,
-.image-item video {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
 
 .caption {color:#fff; font-size: 0.8rem; margin-top: 5px; text-align: center; }
 
@@ -205,6 +200,7 @@ summary {
       line-height: 1.2;
       word-break: break-word;
     }
+
 
 
 

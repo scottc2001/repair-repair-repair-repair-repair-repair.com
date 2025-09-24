@@ -65,7 +65,7 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  max-width: 250px;
+  max-width: 150px;
 }
 
 .image-item img,
@@ -170,6 +170,7 @@ details { width: fit-content; max-width: 100%; margin-left: 10px; }
       line-height: 1.2;
       word-break: break-word;
     }
+
 
 
 

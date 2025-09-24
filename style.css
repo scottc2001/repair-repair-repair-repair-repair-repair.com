@@ -93,8 +93,7 @@ summary {
   justify-content: center;  /* center horiz */
   align-items: center;      /* center vert */
   overflow: hidden;
-  background: transparent;
-  border: 1px solid #000;
+  background: grey;
 }
 
 /* ✅ Fit image/video into frame without distortion */
@@ -202,6 +201,7 @@ summary {
       line-height: 1.2;
       word-break: break-word;
     }
+
 
 
 

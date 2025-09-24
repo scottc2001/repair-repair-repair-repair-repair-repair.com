@@ -85,22 +85,24 @@ summary {
   max-width: 250px;
 }
 
-/* Add a fixed-ratio frame for consistency */
 .image-frame {
   width: 100%;
-  height: 220px; /* adjust to match your tallest vertical image */
+  position: relative;
+  padding-top: 133.33%; /* 4/3 = 1.3333 → keeps 3:4 aspect ratio */
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent; /* invisible box */
   overflow: hidden;
 }
 
 .image-frame img,
 .image-frame video {
+  position: absolute;
+  top: 0;
+  left: 0;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* keeps aspect ratio, centers horizontals */
+  object-fit: contain;
 }
 
 
@@ -207,6 +209,7 @@ summary {
       line-height: 1.2;
       word-break: break-word;
     }
+
 
 
 

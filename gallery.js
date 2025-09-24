@@ -59,40 +59,42 @@ function initGallery(galleryId, lightboxId, jsonFile) {
   }
 
   function buildGallery() {
-    mediaItems.forEach((item, index) => {
-      const container = document.createElement('div');
-      container.classList.add('image-item');
+  mediaItems.forEach((item, index) => {
+    const container = document.createElement('div');
+    container.classList.add('image-item');
 
-      let thumb;
-      if (item.type === 'image') {
-        thumb = document.createElement('img');
-        thumb.src = item.src;
-      } else if (item.type === 'video') {
-        thumb = document.createElement('video');
-        thumb.src = item.src;
-        thumb.controls = false;
-        thumb.muted = true;
-        thumb.autoplay = false;
-        thumb.loop = true;
-        thumb.style.width = '200px';
-        thumb.style.height = 'auto';
-        thumb.style.objectFit = 'cover';
-        thumb.style.cursor = 'pointer';
-        thumb.poster = `${item.src.replace(/\.[^.]+$/, '.jpg')}`;
-      }
+    const frame = document.createElement('div');
+    frame.classList.add('image-frame');
 
-      thumb.alt = item.file;
-      thumb.addEventListener('click', () => openLightbox(index));
+    let thumb;
+    if (item.type === 'image') {
+      thumb = document.createElement('img');
+      thumb.src = item.src;
+    } else if (item.type === 'video') {
+      thumb = document.createElement('video');
+      thumb.src = item.src;
+      thumb.controls = false;
+      thumb.muted = true;
+      thumb.autoplay = false;
+      thumb.loop = true;
+      thumb.poster = `${item.src.replace(/\.[^.]+$/, '.jpg')}`;
+    }
 
-      const caption = document.createElement('div');
-      caption.classList.add('caption');
-      caption.textContent = `${item.file} [${formatDate(item.dateTaken)}]`;
+    thumb.alt = item.file;
+    thumb.addEventListener('click', () => openLightbox(index));
 
-      container.appendChild(thumb);
-      container.appendChild(caption);
-      galleryElement.appendChild(container);
-    });
-  }
+    frame.appendChild(thumb);
+
+    const caption = document.createElement('div');
+    caption.classList.add('caption');
+    caption.textContent = `${item.file} [${formatDate(item.dateTaken)}]`;
+
+    container.appendChild(frame);
+    container.appendChild(caption);
+    galleryElement.appendChild(container);
+  });
+}
+
 
   fetch(jsonFile)
     .then(res => res.json())
@@ -136,4 +138,5 @@ function initGallery(galleryId, lightboxId, jsonFile) {
 initGallery('repairs-gallery', 'repairs-lightbox', 'repairs.json');
 initGallery('cardboard-gallery', 'cardboard-lightbox', '2020-03-16_Cardboard-Packaging.json');
 initGallery('campus-gallery', 'campus-lightbox', '2022-06-11_CampusPack.json');
+
 
